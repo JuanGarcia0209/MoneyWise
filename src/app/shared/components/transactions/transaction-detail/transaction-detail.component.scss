@@ -1,0 +1,11 @@
+ion-card {
+  ion-img {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 8px;
+  }
+  ion-card-footer {
+    display: flex;
+    justify-content: space-around;
+  }
+}

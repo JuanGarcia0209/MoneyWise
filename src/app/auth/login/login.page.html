@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding login-container">
+
+  <ion-card class="login-card">
+
+    <ion-card-header>
+      <ion-card-title>Bienvenido</ion-card-title>
+      <ion-card-subtitle>Ingresa a tu cuenta</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <app-input-field
+        label="Email"
+        type="email"
+        [(value)]="email">
+      </app-input-field>
+
+      <app-input-field
+        label="Contraseña"
+        type="password"
+        [(value)]="password">
+      </app-input-field>
+
+      <ion-button
+        expand="block"
+        shape="round"
+        (click)="login()"
+        [disabled]="loading">
+
+        <ion-spinner *ngIf="loading"></ion-spinner>
+        <span *ngIf="!loading">Ingresar</span>
+
+      </ion-button>
+
+      <ion-text color="danger" *ngIf="error">
+        <p class="error-text">{{ error }}</p>
+      </ion-text>
+
+      <div class="register-link">
+        <ion-label>¿No tienes cuenta?</ion-label>
+
+        <ion-button
+          fill="clear"
+          routerLink="/auth/register">
+
+          Registrarse
+
+        </ion-button>
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

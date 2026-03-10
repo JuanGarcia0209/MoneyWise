@@ -1,0 +1,103 @@
+<form [formGroup]="form" class="transaction-form">
+
+  <ion-segment formControlName="tipo">
+    <ion-segment-button *ngFor="let t of tipos" [value]="t.key">
+      {{ t.label }}
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <!-- CATEGORIA -->
+  <ion-item>
+    <ion-select
+      label="Categoría"
+      labelPlacement="floating"
+      formControlName="categoria">
+
+      <ion-select-option
+        *ngFor="let c of categorias"
+        [value]="c.key">
+        {{ c.label }}
+      </ion-select-option>
+
+    </ion-select>
+  </ion-item>
+
+
+  <!-- FECHA -->
+  <ion-item>
+    <ion-label>Fecha</ion-label>
+
+    <ion-datetime-button datetime="fechaPicker"></ion-datetime-button>
+
+  </ion-item>
+
+  <ion-modal keepContentsMounted="true">
+    <ng-template>
+      <ion-datetime
+        id="fechaPicker"
+        presentation="date"
+        formControlName="fecha">
+      </ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+
+  <!-- MONTO -->
+  <ion-item>
+    <ion-input
+      label="Monto"
+      labelPlacement="floating"
+      inputmode="decimal"
+      formControlName="monto">
+    </ion-input>
+  </ion-item>
+
+
+  <!-- DESCRIPCION -->
+  <ion-item>
+    <ion-textarea
+      label="Descripción"
+      labelPlacement="floating"
+      autoGrow="true"
+      maxlength="250"
+      formControlName="descripcion">
+    </ion-textarea>
+  </ion-item>
+
+
+  <!-- FOTO -->
+  <div class="photo-container">
+    <ion-label>Comprobante</ion-label>
+    <app-photo-selector
+      class="photo-full"
+      [fotoActual]="form.get('comprobante')?.value"
+      (onFotoSeleccionada)="onFotoSeleccionada($event)"
+      (onFotoEliminada)="onFotoEliminada()">
+    </app-photo-selector>
+
+  </div>
+
+
+  <!-- BOTONES -->
+  <ion-button
+    expand="full"
+    color="primary"
+    (click)="save()"
+    [disabled]="form.invalid">
+
+    Guardar
+
+  </ion-button>
+
+
+  <ion-button
+    expand="full"
+    color="medium"
+    (click)="cancel()">
+
+    Cancelar
+
+  </ion-button>
+
+</form>

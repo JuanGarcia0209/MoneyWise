@@ -1,0 +1,17 @@
+<div class="photo-selector-container">
+  <app-photo-preview *ngIf="fotoActual" [src]="fotoActual" size="large" (onClick)="openPreview()"></app-photo-preview>
+  <div class="buttons-row">
+    <ion-button class="photo-btn" (click)="tomarFoto()">
+      <ion-icon slot="start" name="camera-outline"></ion-icon>
+      Tomar
+    </ion-button>
+    <ion-button class="photo-btn" (click)="seleccionarGaleria()">
+      <ion-icon slot="start" name="images-outline"></ion-icon>
+      Galería
+    </ion-button>
+    <ion-button class="photo-btn" color="medium" *ngIf="fotoActual" (click)="eliminarFoto()">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      Eliminar
+    </ion-button>
+  </div>
+</div>

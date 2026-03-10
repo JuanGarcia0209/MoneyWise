@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding register-container">
+
+  <ion-card class="register-card">
+
+    <ion-card-header>
+      <ion-card-title>Crear cuenta</ion-card-title>
+      <ion-card-subtitle>Completa tus datos</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <app-input-field
+        label="Nombre"
+        type="text"
+        [(value)]="nombre">
+      </app-input-field>
+
+      <app-input-field
+        label="Email"
+        type="email"
+        [(value)]="email">
+      </app-input-field>
+
+      <app-input-field
+        label="Contraseña"
+        type="password"
+        [(value)]="password">
+      </app-input-field>
+
+      <ion-button
+        expand="block"
+        shape="round"
+        (click)="register()"
+        [disabled]="loading">
+
+        <ion-spinner *ngIf="loading"></ion-spinner>
+        <span *ngIf="!loading">Registrarse</span>
+
+      </ion-button>
+
+      <ion-text color="danger" *ngIf="error">
+        <p class="error-text">{{ error }}</p>
+      </ion-text>
+
+      <div class="login-link">
+
+        <ion-label>¿Ya tienes cuenta?</ion-label>
+
+        <ion-button
+          fill="clear"
+          routerLink="/auth/login">
+
+          Ingresar
+
+        </ion-button>
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,7 @@
+<ion-item>
+  <ion-label>{{ label }}</ion-label>
+  <ion-select [value]="value" (ionChange)="handleChange($event)">
+    <ion-select-option *ngFor="let opt of options" [value]="opt.key">{{ opt.label }}</ion-select-option>
+  </ion-select>
+  <ion-note color="danger" *ngIf="error">{{ error }}</ion-note>
+</ion-item>

@@ -1,0 +1,9 @@
+<ion-card [color]="color">
+  <ion-card-header>
+    <ion-icon [name]="icono"></ion-icon>
+    <ion-card-title>{{ titulo }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>{{ monto | currencyFormat }}</p>
+  </ion-card-content>
+</ion-card>

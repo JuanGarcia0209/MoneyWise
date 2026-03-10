@@ -1,0 +1,21 @@
+form {
+  ion-item, ion-segment {
+    margin-bottom: 12px;
+  }
+  ion-button {
+    margin-top: 12px;
+  }
+  .transaction-form {
+    width: 100%;
+  }
+
+  .photo-container {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .photo-full {
+    width: 100%;
+    display: block;
+  }
+}

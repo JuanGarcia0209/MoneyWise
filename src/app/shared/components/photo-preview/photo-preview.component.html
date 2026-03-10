@@ -1,0 +1,26 @@
+<div class="preview-container">
+
+  <ng-container *ngIf="safeSrc; else placeholder">
+
+    <ion-img
+      [src]="safeSrc"
+      [class.small]="size==='small'"
+      [class.medium]="size==='medium'"
+      [class.large]="size==='large'"
+      (click)="handleClick()">
+    </ion-img>
+
+  </ng-container>
+
+  <ng-template #placeholder>
+    <div class="photo-placeholder" (click)="handleClick()">
+      Sin imagen
+    </div>
+  </ng-template>
+
+  <!-- aviso -->
+  <div *ngIf="previewMode" class="preview-hint">
+    Presione la imagen para salir
+  </div>
+
+</div>

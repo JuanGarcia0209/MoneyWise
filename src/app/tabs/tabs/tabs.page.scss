@@ -1,0 +1,7 @@
+ion-tab-bar {
+  --background: var(--ion-color-light);
+}
+
+ion-tab-button[slot="end"] {
+  --color: var(--ion-color-danger);
+}

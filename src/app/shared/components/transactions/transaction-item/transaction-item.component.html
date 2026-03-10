@@ -1,0 +1,15 @@
+<ion-item (click)="handleClick()">
+  <ion-avatar slot="start" *ngIf="categoriaInfo">
+    <ion-icon [name]="categoriaInfo.icon" [style.color]="categoriaInfo.color"></ion-icon>
+  </ion-avatar>
+  <ion-label>
+    <h2>{{ transaccion.descripcion || categoriaInfo?.label }}</h2>
+    <p>{{ transaccion.fecha | dateFormat }}</p>
+  </ion-label>
+  <ion-badge slot="end" [color]="transaccion.tipo === 'ingreso' ? 'success' : 'danger'">
+    {{ transaccion.monto | currencyFormat }}
+  </ion-badge>
+  <ion-thumbnail slot="end" *ngIf="transaccion.comprobante">
+    <ion-img [src]="transaccion.comprobante"></ion-img>
+  </ion-thumbnail>
+</ion-item>

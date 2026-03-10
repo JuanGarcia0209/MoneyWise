@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Transacciones</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirFormulario()"><ion-icon name="add-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-filter-bar
+    [(tipoSeleccionado)]="tipoFiltro"
+    [(categoriaSeleccionada)]="categoriaFiltro"
+    (onBuscarChange)="busqueda = $event">
+  </app-filter-bar>
+
+  <ion-list>
+    <app-transaction-item
+      *ngFor="let t of transacciones | filterByType:tipoFiltro | filterByCategory:categoriaFiltro | searchByText:busqueda"
+      [transaccion]="t"
+      (onClick)="abrirFormulario(t)">
+    </app-transaction-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="abrirFormulario()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

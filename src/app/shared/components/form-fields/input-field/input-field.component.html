@@ -1,0 +1,4 @@
+<ion-item [disabled]="disabled">
+  <ion-input [label]="label" labelPlacement="floating" [type]="type" [placeholder]="placeholder" [value]="value" (ionChange)="handleChange($event)"></ion-input>
+  <ion-note color="danger" *ngIf="error">{{ error }}</ion-note>
+</ion-item>

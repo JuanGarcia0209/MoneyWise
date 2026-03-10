@@ -1,0 +1,15 @@
+<ion-segment [value]="tipoSeleccionado" (ionChange)="tipoChanged($event)">
+  <ion-segment-button *ngFor="let t of tipos" [value]="t.key">{{ t.label }}</ion-segment-button>
+</ion-segment>
+
+<ion-item>
+  <ion-select
+      label="Categoría"
+      labelPlacement="floating"
+      [value]="categoriaSeleccionada"
+      (ionChange)="categoriaChanged($event)">
+    <ion-select-option *ngFor="let c of categorias" [value]="c.key">{{ c.label }}</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-searchbar [value]="buscarTexto" (ionInput)="buscarChanged($event)"></ion-searchbar>
