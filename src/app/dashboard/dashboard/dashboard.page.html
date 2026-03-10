@@ -1,17 +1,25 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Dashboard</ion-title>
+
     <ion-buttons slot="end">
       <ion-button (click)="logout()" title="Cerrar sesión" aria-label="Cerrar sesión">
         <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content class="ion-padding">
+
   <ion-grid>
+
+    <!-- RESUMEN PRINCIPAL -->
+
     <ion-row>
+
       <ion-col size="12" size-md="4">
         <app-dashboard-card
           titulo="Saldo Actual"
@@ -20,6 +28,7 @@
           icono="wallet-outline">
         </app-dashboard-card>
       </ion-col>
+
       <ion-col size="12" size-md="4">
         <app-dashboard-card
           titulo="Total Ingresos"
@@ -28,6 +37,7 @@
           icono="cash-outline">
         </app-dashboard-card>
       </ion-col>
+
       <ion-col size="12" size-md="4">
         <app-dashboard-card
           titulo="Total Gastos"
@@ -36,12 +46,64 @@
           icono="cart-outline">
         </app-dashboard-card>
       </ion-col>
+
     </ion-row>
 
+
+    <!-- ANALITICAS EXTRA -->
+
     <ion-row>
+
+      <ion-col size="12" size-md="4">
+
+        <app-dashboard-card
+          titulo="Balance del Mes"
+          [monto]="balanceMes"
+          tipo="saldo"
+          icono="calendar-outline">
+        </app-dashboard-card>
+
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+
+        <app-dashboard-card
+          titulo="Promedio Gasto Diario"
+          [monto]="promedioGastoDiario"
+          tipo="gasto"
+          icono="trending-down-outline">
+        </app-dashboard-card>
+
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+
+        <app-dashboard-card
+          titulo="Mayor Categoría"
+          [monto]="mayorCategoriaMonto"
+          tipo="gasto"
+          icono="stats-chart-outline">
+        </app-dashboard-card>
+
+        <ion-text color="medium">
+          {{ mayorCategoria }}
+        </ion-text>
+
+      </ion-col>
+
+    </ion-row>
+
+
+    <!-- GASTOS POR CATEGORIA -->
+
+    <ion-row>
+
       <ion-col size="12">
+
         <h2>Gastos por categoría</h2>
+
         <ion-list>
+
           <app-progress-bar-category
             *ngFor="let cat of resumen.gastosPorCategoria"
             [categoria]="cat.categoria"
@@ -49,8 +111,51 @@
             [color]="cat.color ?? '#000000'"
             [monto]="cat.monto">
           </app-progress-bar-category>
+
         </ion-list>
+
       </ion-col>
+
     </ion-row>
+
+
+    <!-- ULTIMAS TRANSACCIONES -->
+
+    <ion-row>
+
+      <ion-col size="12">
+
+        <h2>Últimas transacciones</h2>
+
+        <ion-list>
+
+          <ion-item *ngFor="let t of ultimasTransacciones">
+
+            <ion-label>
+
+              <h3>{{ t.descripcion || t.categoria }}</h3>
+
+              <p>{{ t.fecha | date:'shortDate' }}</p>
+
+            </ion-label>
+
+            <ion-badge
+              slot="end"
+              [color]="t.tipo === 'ingreso' ? 'success' : 'danger'">
+
+              {{ t.monto | currency }}
+
+            </ion-badge>
+
+          </ion-item>
+
+        </ion-list>
+
+      </ion-col>
+
+    </ion-row>
+
+
   </ion-grid>
+
 </ion-content>
