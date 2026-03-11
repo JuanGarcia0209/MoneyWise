@@ -5,5 +5,5 @@ export interface Transaccion {
   fecha: string;
   monto: number;
   descripcion?: string;
-  comprobante?: string; // base64 o url
+  comprobante?: string;
 }

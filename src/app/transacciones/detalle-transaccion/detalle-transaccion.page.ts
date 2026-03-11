@@ -41,7 +41,7 @@ export class DetalleTransaccionPage implements OnInit {
     if (!this.transaccion) return;
     if (confirm('¿Deseas eliminar esta transacción?')) {
       await this.transaccionService.delete(this.transaccion.id!);
-      this.router.navigate(['/tabs/transacciones']);
+      this.router.navigate(['/tabs/tabs/transacciones']);
     }
   }
 }

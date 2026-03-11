@@ -44,7 +44,7 @@ export class FormularioTransaccionModal {
       comprobante: this.comprobante
     };
 
-    let wasNew = !this.transaccion?.id;
+    //let wasNew = !this.transaccion?.id;
     if (payload.id) await this.transaccionService.update(payload);
     else await this.transaccionService.add(payload);
 

@@ -33,18 +33,18 @@ export class PhotoSelectorComponent {
 
   async openPreview() {
 
-  if (!this.fotoActual) return;
+    if (!this.fotoActual) return;
 
-  const modal = await this.modalCtrl.create({
-    component: PhotoPreviewComponent,
-    componentProps: {
-      src: this.fotoActual,
-      size: 'large',
-      previewMode: true
-    }
-  });
+    const modal = await this.modalCtrl.create({
+      component: PhotoPreviewComponent,
+      componentProps: {
+        src: this.fotoActual,
+        size: 'large',
+        previewMode: true
+      }
+    });
 
-  await modal.present();
+    await modal.present();
 
-}
+  }
 }

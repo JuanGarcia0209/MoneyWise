@@ -35,6 +35,11 @@ export class ListaTransaccionesPage implements OnInit {
     }
   }
 
+  async verDetalle(transaccion: Transaccion) {
+    // Usar navegación a página de detalles que ya implementa la vista y acciones.
+    await this.router.navigate(['/tabs/tabs/transacciones/detalle', transaccion.id]);
+  }
+
   async eliminar(id: string) {
     if (confirm('¿Deseas eliminar esta transacción?')) {
       await this.transaccionService.delete(id);

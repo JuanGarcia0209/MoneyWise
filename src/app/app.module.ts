@@ -5,10 +5,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-// Ionic storage
 import { IonicStorageModule } from '@ionic/storage-angular';
 
-// Core module
 import { CoreModule } from './core/core.module';
 
 @NgModule({
@@ -17,7 +15,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    IonicStorageModule.forRoot(), // importante
+    IonicStorageModule.forRoot(),
     CoreModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

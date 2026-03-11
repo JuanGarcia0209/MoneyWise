@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tabs/transacciones"></ion-back-button>
+    </ion-buttons>
     <ion-title>Detalle</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="editar()"><ion-icon name="create-outline"></ion-icon></ion-button>
@@ -9,5 +12,9 @@
 </ion-header>
 
 <ion-content class="ion-padding" *ngIf="transaccion">
-  <app-transaction-detail [transaccion]="transaccion"></app-transaction-detail>
+  <app-transaction-detail
+    [transaccion]="transaccion"
+    (onEdit)="editar()"
+    (onDelete)="eliminar()">
+  </app-transaction-detail>
 </ion-content>

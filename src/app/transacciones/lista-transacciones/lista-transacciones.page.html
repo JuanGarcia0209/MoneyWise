@@ -18,7 +18,9 @@
     <app-transaction-item
       *ngFor="let t of transacciones | filterByType:tipoFiltro | filterByCategory:categoriaFiltro | searchByText:busqueda"
       [transaccion]="t"
-      (onClick)="abrirFormulario(t)">
+      (onView)="verDetalle(t)"
+      (onEdit)="abrirFormulario(t)"
+      (onDelete)="eliminar(t.id!)">
     </app-transaction-item>
   </ion-list>
 
