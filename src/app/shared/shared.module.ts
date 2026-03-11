@@ -26,6 +26,9 @@ import { DateFieldComponent } from './components/form-fields/date-field/date-fie
 import { FilterByTypePipe } from './pipes/filter-type.pipe';
 import { FilterByCategoryPipe } from './pipes/filter-category.pipe';
 import { SearchByTextPipe } from './pipes/search-text.pipe';
+import { BarChartComponent } from './components/dashboard/bar-chart/bar-chart.component';
+import { PieChartComponent } from './components/dashboard/pie-chart/pie-chart.component';
+import { BaseChartDirective } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -51,12 +54,15 @@ import { SearchByTextPipe } from './pipes/search-text.pipe';
     InputFieldComponent,
     SelectFieldComponent,
     DateFieldComponent,
+    BarChartComponent,
+    PieChartComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    IonicModule
+    IonicModule,
+    BaseChartDirective
   ],
   exports: [
     CommonModule,
@@ -85,6 +91,8 @@ import { SearchByTextPipe } from './pipes/search-text.pipe';
     InputFieldComponent,
     SelectFieldComponent,
     DateFieldComponent,
+    BarChartComponent,
+    PieChartComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

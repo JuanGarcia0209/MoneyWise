@@ -13,7 +13,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     IonicModule,
     SharedModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    
   ]
 })
 export class DashboardModule {}

@@ -12,7 +12,6 @@ export class PhotoPreviewComponent {
   @Input() src: string = '';
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
 
-  // nuevo
   @Input() previewMode: boolean = false;
 
   @Output() onClick = new EventEmitter<void>();

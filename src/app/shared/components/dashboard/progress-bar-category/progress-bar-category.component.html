@@ -1,4 +1,22 @@
-<div class="progress-bar-container">
+<!-- <div class="progress-bar-container">
   <ion-label>{{ categoria }} ({{ monto | currencyFormat }})</ion-label>
-  <ion-progress-bar [value]="porcentaje / 100" [color]="color"></ion-progress-bar>
+  <ion-progress-bar [value]="porcentaje / 100" [style.--progress-background]="color"></ion-progress-bar>
+</div> -->
+
+<div class="progress-bar-container">
+
+  <div class="header">
+    <span>{{ categoria }}</span>
+    <span>{{ monto | currencyFormat }}</span>
+  </div>
+
+  <ion-progress-bar
+    [value]="porcentaje / 100"
+    [style.--progress-background]="color">
+  </ion-progress-bar>
+
+  <div class="percentage">
+    {{ porcentaje | number:'1.0-0' }}%
+  </div>
+
 </div>

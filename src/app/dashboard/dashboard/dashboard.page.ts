@@ -28,6 +28,7 @@ export class DashboardPage implements OnInit {
   mayorCategoriaMonto = 0;
 
   ultimasTransacciones: Transaccion[] = [];
+  gastosUltimosMeses: any[] = [];
 
   constructor(
     private transaccionService: TransaccionService,
@@ -55,6 +56,8 @@ export class DashboardPage implements OnInit {
         .sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime())
         .slice(0, 5);
 
+        this.gastosUltimosMeses =
+        this.analyticsService.getGastosUltimos6Meses(transacciones);
     });
 
   }

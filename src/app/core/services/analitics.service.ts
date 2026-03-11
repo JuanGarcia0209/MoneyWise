@@ -124,6 +124,40 @@ export class AnalyticsService {
 
   }
 
+  getGastosUltimos6Meses(transacciones: Transaccion[]) {
+
+    const hoy = new Date();
+
+    const meses = [];
+
+    for (let i = 5; i >= 0; i--) {
+
+      const fecha = new Date(hoy.getFullYear(), hoy.getMonth() - i, 1);
+
+      const mes = fecha.toLocaleString('default', { month: 'short' });
+
+      const monto = transacciones
+        .filter(t => {
+
+          const f = new Date(t.fecha);
+
+          return (
+            t.tipo === 'gasto' &&
+            f.getMonth() === fecha.getMonth() &&
+            f.getFullYear() === fecha.getFullYear()
+          );
+
+        })
+        .reduce((sum, t) => sum + t.monto, 0);
+
+      meses.push({ mes, monto });
+
+    }
+
+    return meses;
+
+  }
+
 }
 
 // import { Injectable } from '@angular/core';

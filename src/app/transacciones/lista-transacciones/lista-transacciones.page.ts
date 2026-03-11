@@ -31,7 +31,6 @@ export class ListaTransaccionesPage implements OnInit {
     await modal.present();
     const { data } = await modal.onDidDismiss();
     if (data?.saved) {
-      // ensure user is viewing the transacciones list
       await this.router.navigate(['/tabs/tabs/transacciones']);
     }
   }

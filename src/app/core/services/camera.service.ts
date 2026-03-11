@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class CameraService {
-  // Returns a base64 data URL or null
   async takePhoto(): Promise<string | null> {
     try {
-      // try to register PWA elements on web to avoid pwa-camera-modal errors
       try {
         const pwa = await import('@ionic/pwa-elements/loader');
         if (pwa?.defineCustomElements) pwa.defineCustomElements(window);

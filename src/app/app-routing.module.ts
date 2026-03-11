@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // Redirige a tabs por defecto; AuthGuard dentro de tabs redirige a login si es necesario
   { path: '', redirectTo: 'tabs', pathMatch: 'full' },
 
   // Lazy loading del módulo de autenticación
@@ -17,7 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsModule)
   },
 
-  // Ruta comodín (opcional)
   { path: '**', redirectTo: 'tabs' }
 ];
 

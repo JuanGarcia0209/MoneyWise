@@ -44,9 +44,7 @@ export class TransactionFormComponent implements OnInit {
       ],
 
       comprobante: [null]
-
     });
-
   }
 
   ngOnInit() {
@@ -56,9 +54,7 @@ export class TransactionFormComponent implements OnInit {
   }
 
   save() {
-
     if (this.form.invalid) return;
-
     const data: Transaccion = {
       ...this.transaccion,
       ...this.form.value,
@@ -66,7 +62,6 @@ export class TransactionFormComponent implements OnInit {
     };
 
     this.onSave.emit(data);
-
   }
 
   cancel() {

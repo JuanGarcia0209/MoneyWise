@@ -14,11 +14,11 @@ export class InputFieldComponent {
   @Input() error: string = '';
   @Input() disabled: boolean = false;
 
-  // Cambiado de onChange a valueChange
+  // Cambiando de onChange a valueChange
   @Output() valueChange = new EventEmitter<any>();
 
   handleChange(event: any) {
-    this.value = event.detail?.value; // actualiza la propiedad
-    this.valueChange.emit(this.value); // dispara el cambio para [(value)]
+    this.value = event.detail?.value;
+    this.valueChange.emit(this.value);
   }
 }
