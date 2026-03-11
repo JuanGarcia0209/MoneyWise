@@ -80,7 +80,7 @@ export class LoginPage {
         this.auth.user$.pipe(filter(u => !!u))
       );
 
-      this.router.navigate(['/tabs/dashboard']);
+      this.router.navigate(['/tabs/tabs/dashboard']);
 
     } catch (err: any) {
 
